@@ -141,24 +141,27 @@ echo "Idiomas: " . implode(", ", $idiomas) . "&lt;br&gt;&lt;br&gt;";
 </code></pre>
 <p>}
 ?&gt;</p>
-<h1 id="processar-b">PROCESSAR B</h1>
-<p>```&lt;?php
+<pre><code>
+
+# PROCESSAR B
+```&lt;?php
 if (isset($_FILES['fichero'])) {
     $nombre = $_FILES['fichero']['name'];
     $tmp = $_FILES['fichero']['tmp_name'];
-    $destino = '/var/www/html/ficheros/' . $nombre;</p>
-<pre><code>if (move_uploaded_file($tmp, $destino)) {
-    echo "&lt;p&gt;El fichero '$nombre' se ha guardado correctamente.&lt;/p&gt;";
-    echo "&lt;h3&gt;El contenido del fichero:&lt;/h3&gt;";
-    echo "&lt;pre&gt;" . htmlspecialchars(file_get_contents($destino)) . "&lt;/pre&gt;";
+    $destino = '/var/www/html/ficheros/' . $nombre;
+
+    if (move_uploaded_file($tmp, $destino)) {
+        echo &quot;&lt;p&gt;El fichero '$nombre' se ha guardado correctamente.&lt;/p&gt;&quot;;
+        echo &quot;&lt;h3&gt;El contenido del fichero:&lt;/h3&gt;&quot;;
+        echo &quot;&lt;pre&gt;&quot; . htmlspecialchars(file_get_contents($destino)) . &quot;&lt;/pre&gt;&quot;;
+    } else {
+        echo &quot;&lt;p&gt;Error de guardado.&lt;/p&gt;&quot;;
+    }
 } else {
-    echo "&lt;p&gt;Error de guardado.&lt;/p&gt;";
+    echo &quot;&lt;p&gt;No se ha enviado ningún fichero&lt;/p&gt;&quot;;
 }
+?&gt;
 </code></pre>
-<p>} else {
-    echo "<p>No se ha enviado ningún fichero</p>";
-}
-?&gt;</p>
               
             </div>
           </div><footer>
