@@ -79,72 +79,71 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="processar-a">PROCESSAR A</h1>
-<p>```&lt;?php
-if ($_SERVER['REQUEST_METHOD'] == 'GET'){</p>
-<pre><code>$nombre = $_GET["nombre"];
-$apellido = $_GET["apellido"];
-$edad = $_GET["edad"];
-$direccion = $_GET["direccion"];
-$telefono = $_GET["telefono"];
-$email = $_GET["correo"];
-$genero = $_GET["genero"];
-$idiomas = $_GET["idiomes"] ?? [];
+<pre><code>&lt;?php
+if ($_SERVER['REQUEST_METHOD'] == 'GET'){
 
-if (empty($nombre)) {
-    echo "El 'Nombre' es obligatorio.&lt;br&gt;";
-}
+    $nombre = $_GET[&quot;nombre&quot;];
+    $apellido = $_GET[&quot;apellido&quot;];
+    $edad = $_GET[&quot;edad&quot;];
+    $direccion = $_GET[&quot;direccion&quot;];
+    $telefono = $_GET[&quot;telefono&quot;];
+    $email = $_GET[&quot;correo&quot;];
+    $genero = $_GET[&quot;genero&quot;];
+    $idiomas = $_GET[&quot;idiomes&quot;] ?? [];
 
-if (empty($apellido)) {
-    echo "El 'Apellido' es obligatorio.&lt;br&gt;";
-}
-
-if (empty($edad)) {
-    echo "La 'Edad' es obligatoria.&lt;br&gt;";
-} elseif (!filter_var($edad, FILTER_VALIDATE_INT)) {
-    echo "La edad no es válida.&lt;br&gt;";
-}
-
-if (empty($email)) {
-    echo "El 'email' es obligatorio.&lt;br&gt;";
-} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo "El email no es válido.&lt;br&gt;";
-}
-
-if (!empty($idiomas)) {
-    foreach ($idiomas as $idioma) {
-        if ($idioma == "Español") {
-            echo "Bienvenido!&lt;br&gt;";
-        } elseif ($idioma == "Inglés") {
-            echo "Welcome!&lt;br&gt;";
-        } elseif ($idioma == "Francés") {
-            echo "Bienvenue!&lt;br&gt;";
-        } elseif ($idioma == "Alemán") {
-            echo "Willkommen!&lt;br&gt;";
-        } elseif ($idioma == "Italiano") {
-            echo "Benvenuto!&lt;br&gt;";
-        }
+    if (empty($nombre)) {
+        echo &quot;El 'Nombre' es obligatorio.&lt;br&gt;&quot;;
     }
-} else {
-    echo "No se ha seleccionado ningún idioma.&lt;br&gt;";
+
+    if (empty($apellido)) {
+        echo &quot;El 'Apellido' es obligatorio.&lt;br&gt;&quot;;
+    }
+
+    if (empty($edad)) {
+        echo &quot;La 'Edad' es obligatoria.&lt;br&gt;&quot;;
+    } elseif (!filter_var($edad, FILTER_VALIDATE_INT)) {
+        echo &quot;La edad no es válida.&lt;br&gt;&quot;;
+    }
+
+    if (empty($email)) {
+        echo &quot;El 'email' es obligatorio.&lt;br&gt;&quot;;
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo &quot;El email no es válido.&lt;br&gt;&quot;;
+    }
+
+    if (!empty($idiomas)) {
+        foreach ($idiomas as $idioma) {
+            if ($idioma == &quot;Español&quot;) {
+                echo &quot;Bienvenido!&lt;br&gt;&quot;;
+            } elseif ($idioma == &quot;Inglés&quot;) {
+                echo &quot;Welcome!&lt;br&gt;&quot;;
+            } elseif ($idioma == &quot;Francés&quot;) {
+                echo &quot;Bienvenue!&lt;br&gt;&quot;;
+            } elseif ($idioma == &quot;Alemán&quot;) {
+                echo &quot;Willkommen!&lt;br&gt;&quot;;
+            } elseif ($idioma == &quot;Italiano&quot;) {
+                echo &quot;Benvenuto!&lt;br&gt;&quot;;
+            }
+        }
+    } else {
+        echo &quot;No se ha seleccionado ningún idioma.&lt;br&gt;&quot;;
+    }
+
+    echo &quot;&lt;br&gt;&lt;strong&gt;Datos introducidos:&lt;/strong&gt;&lt;br&gt;&quot;;
+    echo &quot;Nombre: $nombre&lt;br&gt;&quot;;
+    echo &quot;Apellido: $apellido&lt;br&gt;&quot;;
+    echo &quot;Edad: $edad&lt;br&gt;&quot;;
+    echo &quot;Dirección: $direccion&lt;br&gt;&quot;;
+    echo &quot;Teléfono: $telefono&lt;br&gt;&quot;;
+    echo &quot;Email: $email&lt;br&gt;&quot;;
+    echo &quot;Género: $genero&lt;br&gt;&lt;br&gt;&quot;;
+
+    echo &quot;Idiomas: &quot; . implode(&quot;, &quot;, $idiomas) . &quot;&lt;br&gt;&lt;br&gt;&quot;;
 }
-
-echo "&lt;br&gt;&lt;strong&gt;Datos introducidos:&lt;/strong&gt;&lt;br&gt;";
-echo "Nombre: $nombre&lt;br&gt;";
-echo "Apellido: $apellido&lt;br&gt;";
-echo "Edad: $edad&lt;br&gt;";
-echo "Dirección: $direccion&lt;br&gt;";
-echo "Teléfono: $telefono&lt;br&gt;";
-echo "Email: $email&lt;br&gt;";
-echo "Género: $genero&lt;br&gt;&lt;br&gt;";
-
-echo "Idiomas: " . implode(", ", $idiomas) . "&lt;br&gt;&lt;br&gt;";
+?&gt;
 </code></pre>
-<p>}
-?&gt;</p>
-<pre><code>
-
-# PROCESSAR B
-```&lt;?php
+<h1 id="processar-b">PROCESSAR B</h1>
+<pre><code>&lt;?php
 if (isset($_FILES['fichero'])) {
     $nombre = $_FILES['fichero']['name'];
     $tmp = $_FILES['fichero']['tmp_name'];
